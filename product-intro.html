@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제품소개 | 도원시스템</title>
+  <meta name="description" content="도원시스템이 선별한 프리미엄 시스템에어컨의 고유한 기술 특장점과 차별화된 성능을 상세히 안내해 드립니다.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 제품소개 서브페이지 커스텀 스타일 */
+    .sub-hero {
+      height: 40vh;
+      min-height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #060607;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sub-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(11, 11, 12, 0.4) 0%, rgba(11, 11, 12, 0.95) 100%);
+      z-index: 2;
+    }
+    .sub-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: 1;
+    }
+    .sub-hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      width: 100%;
+    }
+    .sub-hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .sub-hero-title span {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--primary);
+    }
+    .sub-hero-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    /* 상세 정보 바둑판형 레이아웃 */
+    .detail-section {
+      padding: 80px 0;
+    }
+    .detail-row {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+    .detail-row:nth-child(even) {
+      grid-template-columns: 1fr 1.2fr;
+    }
+    @media (max-width: 992px) {
+      .detail-row, .detail-row:nth-child(even) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+    }
+    .detail-img-box {
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-premium);
+      position: relative;
+    }
+    .detail-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      transition: var(--transition-smooth);
+    }
+    .detail-img-box:hover .detail-img {
+      transform: scale(1.04);
+    }
+    .detail-text {
+      padding: 20px 0;
+    }
+    .detail-tag {
+      color: var(--primary);
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .detail-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .detail-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    .features-list {
+      list-style: none;
+    }
+    .features-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+    .features-list li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 프리미엄 헤더 영역 -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="header_logo">DOWON<span>SYSTEMS</span></a>
+      
+      <button class="menu-toggle" aria-label="메뉴 열기" id="menu_toggle_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="nav_home">홈</a></li>
+        <li><a href="about.html" class="nav-link" id="nav_about">회사소개</a></li>
+        <li><a href="products.html" class="nav-link" id="nav_products">제품판매</a></li>
+        <li><a href="https://blog.naver.com/junyplz" target="_blank" class="nav-link" id="nav_cases">시공사례<svg viewBox="0 0 24 24" width="24" height="24" style="fill: #03C75A; vertical-align: middle; margin-left: 8px; display: inline-block; position: relative; top: -1px;"><rect x="2" y="2" width="20" height="20" rx="4" fill="#03C75A"/><text x="7" y="16" font-family="'Arial', sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">b</text></svg></a></li>
+        
+        <!-- 
+          [활성화된 메뉴] 
+          제품소개 페이지로 정상 연동되도록 주석을 해제한 상태입니다. 
+        -->
+        <li><a href="product-intro.html" class="nav-link active" id="nav_prod_intro">제품소개</a></li>
+        <!-- <li><a href="reviews.html" class="nav-link" id="nav_reviews">시공후기</a></li> -->
+        
+        <li><a href="about.html#contact" class="contact-btn-nav" id="nav_contact">견적문의</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 서브 페이지 히어로 섹션 -->
+  <section class="sub-hero">
+    <!-- 
+      [사진 직접 교체 안내]
+      - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\hero-bg.png
+      - 추천 해상도: 1920x600px (3:1 비율)
+    -->
+    <img src="images/hero-bg.png" alt="도원시스템 제품소개 히어로 배경" class="sub-hero-bg">
+    <div class="sub-hero-content container">
+      <h1 class="sub-hero-title">Product <span>Technology</span></h1>
+      <p class="sub-hero-desc">공기 역학과 인버터 엔지니어링이 빚어낸 프리미엄 기술 사양</p>
+    </div>
+  </section>
+
+  <!-- 상세 제품 소개 영역 -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Core Technology</span>
+        <h2 class="section-title">스마트 제어와 <span>친환경 에코 솔루션</span></h2>
+      </div>
+
+      <!-- 첫 번째 상세 분석 행 -->
+      <div class="detail-row">
+        <div class="detail-text">
+          <span class="detail-tag">01. AirFlow Design</span>
+          <h3 class="detail-title">무풍 냉방 및 와이드 기류 기술</h3>
+          <p class="detail-desc">
+            도원시스템이 제공하는 프리미엄 실내기는 미세한 기류 통풍 구멍을 통해 차갑고 강한 직접풍 없이도 실내 온도를 균일하게 유지합니다. 4방향 독립 기류 제어 블레이드가 구석구석까지 사각지대 없이 기류를 전달합니다.
+          </p>
+          <ul class="features-list">
+            <li>간접풍 무풍 소프트 청정 운전</li>
+            <li>최대 9m 와이드 롱 바람 송출</li>
+            <li>스마트 자동 인체 감지 기류 유도</li>
+          </ul>
+        </div>
+        <div class="detail-img-box">
+          <!-- 
+            [사진 직접 교체 안내]
+            - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\product-1.png (또는 전 전용 상세 이미지 제작 후 덮어쓰기)
+            - 추천 해상도: 800x600px (4:3 비율)
+          -->
+          <img src="images/product-1.png" alt="무풍 기류 시스템에어컨 상세 이미지" class="detail-img">
+        </div>
+      </div>
+
+      <!-- 두 번째 상세 분석 행 -->
+      <div class="detail-row">
+        <div class="detail-img-box">
+          <!-- 
+            [사진 직접 교체 안내]
+            - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\product-2.png
+            - 추천 해상도: 800x600px (4:3 비율)
+          -->
+          <img src="images/product-2.png" alt="인버터 압축기 기술 상세 이미지" class="detail-img">
+        </div>
+        <div class="detail-text" style="padding-left: 20px;">
+          <span class="detail-tag">02. Ultra Inverter</span>
+          <h3 class="detail-title">고효율 초절전 인버터 압축기</h3>
+          <p class="detail-desc">
+            대용량 압축기 부품은 지능형 스마트 주파수 제어 회로를 통해 실내 냉난방 요구량에 맞추어 주파수를 미세 조정합니다. 불필요한 공회전과 전력 낭비를 완전히 차단하여 일반형 대비 전기세를 최대 40% 이상 감축합니다.
+          </p>
+          <ul class="features-list">
+            <li>고효율 트윈 로터리 인버터 압축기</li>
+            <li>대용량 친환경 고난이도 배관 용접 시공</li>
+            <li>기계 오작동 대비 PCB 자가 진단 센서</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 하단 비주얼 CTA 섹션 -->
+  <section class="cta-section">
+    <div class="container cta-container">
+      <h2 class="cta-title">최고의 엔지니어링으로 공기의 품질을 높입니다</h2>
+      <p class="cta-desc">도원시스템은 시공 및 정밀 진단 수리 완료 후 철저한 사후 케어를 약속합니다. 김준수 대표가 현장 설계부터 시공, 수리까지 전 과정을 정직하게 책임집니다.</p>
+      <a href="about.html#contact" class="btn btn-primary" id="cta_contact_btn">신속 고장수리 & 설치 문의</a>
+    </div>
+  </section>
+
+  <!-- 프리미엄 푸터 영역 -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">DOWON<span>SYSTEMS</span></div>
+          <p class="footer-company-desc">도원시스템은 최고급 시스템에어컨 설계·설치 및 고장 수리, 정밀 진단 유지보수를 전문으로 하는 실내 공조 엔지니어링 기업입니다.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">주요 메뉴</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">홈 바로가기</a></li>
+            <li><a href="about.html">회사소개</a></li>
+            <li><a href="products.html">제품판매</a></li>
+            <li><a href="https://blog.naver.com/junyplz" target="_blank">시공사례<svg viewBox="0 0 24 24" width="24" height="24" style="fill: #03C75A; vertical-align: middle; margin-left: 6px; display: inline-block; position: relative; top: -1px;"><rect x="2" y="2" width="20" height="20" rx="4" fill="#03C75A"/><text x="7" y="16" font-family="'Arial', sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">b</text></svg></a></li>
+            
+            <!-- 
+              [하단 푸터 메뉴 추가 방법] 
+              푸터 영역에도 '제품소개' 및 '시공후기'를 노출시키려면 아래 두 줄의 주석을 삭제하세요.
+            -->
+            <li><a href="product-intro.html">제품소개</a></li>
+            <!-- <li><a href="reviews.html">시공후기</a></li> -->
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">대표 연락처</h4>
+          <ul class="footer-info-list">
+            <li>
+              <span>대표자</span>
+              <span>김준수 대표</span>
+            </li>
+            <li>
+              <span>대표번호 (직통)</span>
+              <span>010-2806-6545</span>
+            </li>
+            <li>
+              <span>상담 시간</span>
+              <span>평일 09:00 - 18:00 (주말/공휴일 휴무)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DOWON SYSTEMS. All rights reserved.</p>
+        <p>Premium HVAC Systems - Certified Installation & Professional Repair.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 모바일 네비게이션 토글 제어
+    const menuToggle = document.getElementById('menu_toggle_btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // 스크롤 시 헤더 디자인 변경 효과
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.padding = '5px 0';
+        header.style.backgroundColor = 'rgba(6, 6, 7, 0.95)';
+      } else {
+        header.style.padding = '0';
+        header.style.backgroundColor = 'rgba(11, 11, 12, 0.85)';
+      }
+    });
+  </script>
+</body>
+</html>

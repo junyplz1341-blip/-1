@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시공후기 | 도원시스템</title>
+  <meta name="description" content="도원시스템의 완벽한 시스템에어컨 시공 및 신속 수리 서비스를 이용하신 실제 고객님들의 고품격 후기를 소개합니다.">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* 시공후기 서브페이지 커스텀 스타일 */
+    .sub-hero {
+      height: 40vh;
+      min-height: 300px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background-color: #060607;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .sub-hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(11, 11, 12, 0.4) 0%, rgba(11, 11, 12, 0.95) 100%);
+      z-index: 2;
+    }
+    .sub-hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: 1;
+    }
+    .sub-hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      width: 100%;
+    }
+    .sub-hero-title {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .sub-hero-title span {
+      font-family: var(--font-serif);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--primary);
+    }
+    .sub-hero-desc {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      letter-spacing: 1px;
+    }
+    
+    /* 리뷰 그리드 레이아웃 */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      margin-top: 50px;
+    }
+    @media (max-width: 768px) {
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+    .review-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 40px;
+      position: relative;
+      transition: var(--transition-smooth);
+    }
+    .review-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-premium);
+    }
+    .rating-stars {
+      color: var(--primary-light);
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .review-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--text-primary);
+    }
+    .review-content {
+      color: var(--text-secondary);
+      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 25px;
+    }
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 20px;
+    }
+    .author-img-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .author-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .author-info h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    .author-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 프리미엄 헤더 영역 -->
+  <header>
+    <div class="container header-container">
+      <a href="index.html" class="logo" id="header_logo">DOWON<span>SYSTEMS</span></a>
+      
+      <button class="menu-toggle" aria-label="메뉴 열기" id="menu_toggle_btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="nav_home">홈</a></li>
+        <li><a href="about.html" class="nav-link" id="nav_about">회사소개</a></li>
+        <li><a href="products.html" class="nav-link" id="nav_products">제품판매</a></li>
+        <li><a href="https://blog.naver.com/junyplz" target="_blank" class="nav-link" id="nav_cases">시공사례<svg viewBox="0 0 24 24" width="24" height="24" style="fill: #03C75A; vertical-align: middle; margin-left: 8px; display: inline-block; position: relative; top: -1px;"><rect x="2" y="2" width="20" height="20" rx="4" fill="#03C75A"/><text x="7" y="16" font-family="'Arial', sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">b</text></svg></a></li>
+        
+        <!-- 
+          [활성화된 메뉴] 
+          제품소개 및 시공후기 링크를 모두 활성화한 예시입니다. 
+        -->
+        <li><a href="product-intro.html" class="nav-link" id="nav_prod_intro">제품소개</a></li>
+        <li><a href="reviews.html" class="nav-link active" id="nav_reviews">시공후기</a></li>
+        
+        <li><a href="about.html#contact" class="contact-btn-nav" id="nav_contact">견적문의</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- 서브 페이지 히어로 섹션 -->
+  <section class="sub-hero">
+    <!-- 
+      [사진 직접 교체 안내]
+      - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\hero-bg.png
+      - 추천 해상도: 1920x600px (3:1 비율)
+    -->
+    <img src="images/hero-bg.png" alt="도원시스템 시공후기 히어로 배경" class="sub-hero-bg">
+    <div class="sub-hero-content container">
+      <h1 class="sub-hero-title">Client <span>Reviews</span></h1>
+      <p class="sub-hero-desc">고객님들이 직접 증명해주신 도원시스템의 명품 시공과 약속</p>
+    </div>
+  </section>
+
+  <!-- 시공후기 그리드 영역 -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-subtitle">Testimonials</span>
+        <h2 class="section-title">직접 남겨주신 <span>정성 어린 고객 후기</span></h2>
+      </div>
+
+      <div class="reviews-grid">
+        
+        <!-- 후기 1 -->
+        <div class="review-card">
+          <span class="rating-stars">★★★★★</span>
+          <h3 class="review-title">"천장을 전혀 망가뜨리지 않고 배관 누수를 잡아주셨어요"</h3>
+          <p class="review-content">
+            거실 천장에서 물이 미세하게 떨어져 인테리어를 뜯어야 하나 걱정이 태산이었는데, 김준수 대표님이 직접 가스 탐지기와 압력 기기를 가지고 오셔서 가스 누설 부위를 정확하게 추적해주셨어요. 아주 정밀하고 최소한의 타공으로만 배관 용접 수리를 끝내주셔서 정말 감동받았습니다.
+          </p>
+          <div class="review-author">
+            <div class="author-img-box">
+              <!-- 
+                [사진 직접 교체 안내]
+                - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\case-3.png (또는 아바타 이미지로 교체)
+                - 추천 해상도: 150x150px (1:1 정원 비율)
+              -->
+              <img src="images/case-3.png" alt="리뷰 고객 프로필 사진" class="author-img">
+            </div>
+            <div class="author-info">
+              <h4>한남동 펜트하우스 입주민 이** 님</h4>
+              <span>시공 내용: 거실 매립 배관 가스 누설 탐지 및 용접 수리</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 후기 2 -->
+        <div class="review-card">
+          <span class="rating-stars">★★★★★</span>
+          <h3 class="review-title">"까다로운 설계와 감리 규정도 완벽하게 통과했습니다"</h3>
+          <p class="review-content">
+            저희 오피스 빌딩 신축 공사 과정에서 대용량 멀티 실외기 설계 및 공조 배관 용접 시공을 도원시스템에 의뢰했습니다. 공정이 매우 빡빡하고 제조사 감리 조건이 까다로웠음에도 배관 보온과 진공 실측까지 메뉴얼을 칼같이 지켜주셔서 완벽한 성적표로 합격했습니다.
+          </p>
+          <div class="review-author">
+            <div class="author-img-box">
+              <!-- 
+                [사진 직접 교체 안내]
+                - 이미지 파일 경로: C:\Users\도원\.gemini\antigravity\scratch\dowon-systems\images\case-2.png
+                - 추천 해상도: 150x150px (1:1 정원 비율)
+              -->
+              <img src="images/case-2.png" alt="리뷰 고객 프로필 사진" class="author-img">
+            </div>
+            <div class="author-info">
+              <h4>판교 IT 벤처타워 관리과장 최** 님</h4>
+              <span>시공 내용: 상업용 대용량 VRF 에어컨 및 중앙 제어 구축</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 하단 비주얼 CTA 섹션 -->
+  <section class="cta-section">
+    <div class="container cta-container">
+      <h2 class="cta-title">최고의 엔지니어링으로 공기의 품질을 높입니다</h2>
+      <p class="cta-desc">도원시스템은 시공 및 정밀 진단 수리 완료 후 철저한 사후 케어를 약속합니다. 김준수 대표가 현장 설계부터 시공, 수리까지 전 과정을 정직하게 책임집니다.</p>
+      <a href="about.html#contact" class="btn btn-primary" id="cta_contact_btn">신속 고장수리 & 설치 문의</a>
+    </div>
+  </section>
+
+  <!-- 프리미엄 푸터 영역 -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">DOWON<span>SYSTEMS</span></div>
+          <p class="footer-company-desc">도원시스템은 최고급 시스템에어컨 설계·설치 및 고장 수리, 정밀 진단 유지보수를 전문으로 하는 실내 공조 엔지니어링 기업입니다.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">주요 메뉴</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">홈 바로가기</a></li>
+            <li><a href="about.html">회사소개</a></li>
+            <li><a href="products.html">제품판매</a></li>
+            <li><a href="https://blog.naver.com/junyplz" target="_blank">시공사례<svg viewBox="0 0 24 24" width="13" height="13" style="fill: #03C75A; vertical-align: middle; margin-left: 4px; display: inline-block; position: relative; top: -1px;"><rect x="2" y="2" width="20" height="20" rx="4" fill="#03C75A"/><text x="7" y="16" font-family="'Arial', sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">b</text></svg></a></li>
+            
+            <!-- 
+              [하단 푸터 메뉴 추가 방법] 
+              푸터 영역에도 '제품소개' 및 '시공후기'를 노출시키려면 아래 두 줄의 주석을 삭제하세요.
+            -->
+            <li><a href="product-intro.html">제품소개</a></li>
+            <li><a href="reviews.html">시공후기</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">대표 연락처</h4>
+          <ul class="footer-info-list">
+            <li>
+              <span>대표자</span>
+              <span>김준수 대표</span>
+            </li>
+            <li>
+              <span>대표번호 (직통)</span>
+              <span>010-2806-6545</span>
+            </li>
+            <li>
+              <span>상담 시간</span>
+              <span>평일 09:00 - 18:00 (주말/공휴일 휴무)</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 DOWON SYSTEMS. All rights reserved.</p>
+        <p>Premium HVAC Systems - Certified Installation & Professional Repair.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 모바일 네비게이션 토글 제어
+    const menuToggle = document.getElementById('menu_toggle_btn');
+    const navMenu = document.querySelector('.nav-menu');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // 스크롤 시 헤더 디자인 변경 효과
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.padding = '5px 0';
+        header.style.backgroundColor = 'rgba(6, 6, 7, 0.95)';
+      } else {
+        header.style.padding = '0';
+        header.style.backgroundColor = 'rgba(11, 11, 12, 0.85)';
+      }
+    });
+  </script>
+</body>
+</html>
